@@ -27,5 +27,5 @@ workflow "New workflow" {
 
 action "GitHub Action for Docker-1" {
   uses = "docker://node:10"
-  args = "echo $poyo"
+  args = ["bash", "-c", "echo $poyo"]
 }

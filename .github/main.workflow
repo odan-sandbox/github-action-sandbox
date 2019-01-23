@@ -1,16 +1,6 @@
-workflow "New workflow" {
-  on = "push"
-  resolves = ["Create an issue"]
-}
-
 action "Create an issue" {
   uses = "JasonEtco/create-an-issue@d799688e0585cc0c5c8786832f0c468b84340ffa"
   secrets = ["GITHUB_TOKEN"]
-}
-
-workflow "New workflow 1" {
-  on = "push"
-  resolves = ["GitHub Action for Docker"]
 }
 
 action "GitHub Action for npm" {
@@ -28,4 +18,14 @@ action "GitHub Action for Docker" {
   uses = "actions/docker/cli@c08a5fc9e0286844156fefff2c141072048141f6"
   needs = ["docker"]
   args = "push odanado/github-action-sandbox"
+}
+
+workflow "New workflow" {
+  on = "push"
+  resolves = ["GitHub Action for Docker-1"]
+}
+
+action "GitHub Action for Docker-1" {
+  uses = "actions/docker/cli@c08a5fc9e0286844156fefff2c141072048141f6"
+  args = "run --rm -it bash -c \"lscpu && free -h && uname -a\""
 }

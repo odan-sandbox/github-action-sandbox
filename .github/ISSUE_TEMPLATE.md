@@ -1,7 +1,7 @@
 ---
 title: Someone just pushed
 assignees:
-  - JasonEtco
+  - odanado
 labels:
   - bug
 ---

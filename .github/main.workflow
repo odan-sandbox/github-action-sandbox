@@ -27,5 +27,5 @@ workflow "New workflow" {
 
 action "GitHub Action for Docker-1" {
   uses = "actions/docker/cli@c08a5fc9e0286844156fefff2c141072048141f6"
-  args = "run --rm -it bash -c \"lscpu && free -h && uname -a\""
+  args = "run --rm -it ubuntu bash -c \"lscpu && free -h && uname -a\""
 }

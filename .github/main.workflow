@@ -10,7 +10,7 @@ action "Create an issue" {
 
 workflow "New workflow 1" {
   on = "push"
-  resolves = ["docker"]
+  resolves = ["GitHub Action for Docker"]
 }
 
 action "GitHub Action for npm" {
@@ -22,4 +22,10 @@ action "docker" {
   uses = "actions/docker/login@c08a5fc9e0286844156fefff2c141072048141f6"
   needs = ["GitHub Action for npm"]
   secrets = ["DOCKER_PASSWORD", "DOCKER_USERNAME"]
+}
+
+action "GitHub Action for Docker" {
+  uses = "actions/docker/cli@c08a5fc9e0286844156fefff2c141072048141f6"
+  needs = ["docker"]
+  args = "push odanado/github-action-sandbox"
 }
